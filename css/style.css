@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "Manrope";
+    src:
+            url("/fonts/Manrope.ttf"), local("SemiBold");
+    font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 114px;
+    font-family: Manrope, serif;
+    background-color: #EAE0C8;
+}
+
+.header__container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 20px ;
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.25);
+    background: rgba(89, 59, 59, 1);
+}
+
+.header__container h1 {
+    color: rgba(234, 224, 200, 1);
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 15px;
+    padding-left: 15px;
+    padding-top: 8px;
+    text-align: center;
+}
+
+.pins{
+    width: 100%;
+    height: 20px;
+    background: repeating-linear-gradient(to right, transparent 0 12px, rgba(217, 217, 217, 1) 12px 32px);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.about{
+    width: 50%;
+    color: rgba(234, 224, 200, 1);
+    font-size: 12px;
+    letter-spacing: 5px;
+    background-color: #795151;
+    border-radius: 5px;
+    text-align: center;
+
+    box-shadow: 0 0 15px 8px rgba(0, 0, 0, 0.25);
+}
