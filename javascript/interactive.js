@@ -34,6 +34,8 @@ function selectNote(index) {
     const note = notes[index];
     noteNameElement.textContent = note.title;
     notesField.value = note.content;
+    notesField.style.height = 'auto';
+    notesField.style.height = (notesField.scrollHeight) + 'px';
     if (note.done) {
         noteCheckBox.classList.remove("checkbox-hidden");
     } else {
@@ -45,6 +47,8 @@ function selectNote(index) {
 function clearNoteDisplay() {
     noteNameElement.textContent = "";
     notesField.value = "";
+    notesField.style.height = 'auto';
+    notesField.style.height = (notesField.scrollHeight) + 'px';
     noteCheckBox.classList.add("checkbox-hidden");
     todoContainer.style.display = 'none';
 }
@@ -111,6 +115,7 @@ deleteNoteButton.addEventListener("click", () => {
     }
 });
 
+// Initial load
 updateInputCheckbox();
 renderNotesList();
 if (notes.length > 0) {
