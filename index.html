@@ -7,32 +7,36 @@
     <title>mynotes</title>
 </head>
 <body>
-    <div class="header__container">
-        <div class="pins"></div>
-        <h1>Заметки</h1>
-    </div>
-    <div class="about">
-        <h1>Блокнот для записей — удобное место для хранения мыслей, планов и заметок.</h1>
-        <h1>Добавляйте, редактируйте или удаляйте записи по мере необходимости.</h1>
-    </div>
+<div class="header__container">
+    <div class="pins"></div>
+    <h1>Заметки</h1>
+</div>
+<div class="about">
+    <h1>Блокнот для записей — удобное место для хранения мыслей, планов и заметок.</h1>
+    <h1>Добавляйте, редактируйте или удаляйте записи по мере необходимости.</h1>
+</div>
 
-    <div class="input-container">
-        <div class="input__general">
+<div class="input-container">
+    <div class="input__general">
+        <div class="input__checkbox-container">
             <img src="images/CheckBox.png" id="input__checkbox">
-            <input type="text" id="input__noteName" placeholder="Напишите название заметки">
-            <button id="input_addTodo">Добавить задачу</button>
         </div>
+        <input type="text" id="input__noteName" placeholder="Напишите название заметки">
+        <button id="input_addTodo">Добавить задачу</button>
     </div>
+</div>
 
-    <div id="notes-list" class="notes-list"></div>
+<div id="notes-list" class="notes-list"></div>
 
-    <div class="todo-container" id="todo_container">
+<div class="todo-container" id="todo_container">
+    <div class="checkbox-container">
         <img src="images/CheckBox.png" id="note__checkbox">
-        <div class="note__name"></div>
-        <textarea placeholder="Напишите свои заметки" id="notesField"></textarea>
-        <button id="delete_note">Удалить</button>
     </div>
+    <div class="note__name"></div>
+    <textarea placeholder="Напишите свои заметки" id="notesField"></textarea>
+    <button id="delete_note">Удалить</button>
+</div>
 
-    <script src="javascript/interactive.js"></script>
+<script src="javascript/interactive.js"></script>
 </body>
 </html>

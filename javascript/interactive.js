@@ -76,6 +76,12 @@ addTodoButton.addEventListener("click", () => {
 
 isDoneCheckBox.addEventListener("click", () => {
     isDone = !isDone;
+    if (isDone) {
+        isDoneCheckBox.classList.remove("input__checkbox-hidden");
+    }
+    else{
+        isDoneCheckBox.classList.remove("input__checkbox-hidden");
+    }
     updateInputCheckbox();
 });
 
@@ -115,7 +121,6 @@ deleteNoteButton.addEventListener("click", () => {
     }
 });
 
-// Initial load
 updateInputCheckbox();
 renderNotesList();
 if (notes.length > 0) {

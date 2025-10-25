@@ -70,12 +70,31 @@ body{
     font-family: Manrope, serif;
 }
 
-#input__checkbox{
-    height: 60px;
-    padding: 30px;
+.input__checkbox-container {
+    position: relative;
+    width: 90px;
+    height: 90px;
     background-color: #EAE0C8;
+    padding: 25px;
     border-radius: 50px;
     box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+#input__checkbox {
+    position: relative;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    top: 15px;
+    left: 5px;
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s ease;
+}
+
+.input__checkbox-hidden {
+    opacity: 0;
+    transform: scale(0.8);
     transition: all 0.3s ease;
 }
 
@@ -98,11 +117,11 @@ body{
     border-radius: 36px;
     background-color: #CABA93;
     font-size: 56px;
-    color: rgba(234, 224, 200, 1);
+    color: rgba(89, 59, 59, 1);
 }
 
 #input__noteName::placeholder{
-    color: rgba(234, 224, 200, 1);
+    color: rgba(89, 59, 59, 1);
 }
 
 .notes-list {
@@ -145,12 +164,21 @@ body{
     font-weight: bold;
 }
 
-#note__checkbox{
-    height: 60px;
+.checkbox-container {
+    position: relative;
+    width: 90px;
+    height: 90px;
     background-color: #EAE0C8;
     border-radius: 50px;
-    padding: 15px;
     box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+#note__checkbox {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 60px;
+    height: 60px;
     transition: all 0.3s ease;
 }
 
