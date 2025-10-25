@@ -26,7 +26,6 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding-left: 20px ;
     padding-top: 20px ;
     box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.25);
     background: rgba(89, 59, 59, 1);
@@ -38,8 +37,9 @@ body{
     font-weight: 600;
     line-height: 100%;
     letter-spacing: 15px;
-    padding-left: 1px;
-    padding-top: 30px ;
+    padding-left: 30px;
+    padding-top: 20px ;
+    padding-bottom: 20px ;
     text-align: center;
 }
 
@@ -47,11 +47,10 @@ body{
     width: 100%;
     height: 30px;
     background: repeating-linear-gradient(to right, transparent 0 30px, rgba(217, 217, 217, 1) 20px 61px);
-
 }
 
 .about{
-    width: 70%;
+    width: 85%;
     color: rgba(234, 224, 200, 1);
     font-size: 12px;
     letter-spacing: 5px;
@@ -59,4 +58,42 @@ body{
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 0 15px 8px rgba(0, 0, 0, 0.25);
+}
+
+.input-container{
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background-color: #77564D;
+    padding: 25px;
+    font-family: Manrope, serif;
+}
+
+#input__checkbox{
+    height: 60px;
+    padding: 30px;
+    background-color: #EAE0C8;
+    border-radius: 50px;
+    box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.input__general{
+    display: flex;
+    width: 100%;
+    background-color: #EBDCB8;
+    border-radius: 50px;
+    padding: 10px;
+    align-items: center;
+}
+
+#input__textfield{
+    width: 100%;
+    height: 4rem;
+    padding: 1rem;
+    margin-left: 12px;
+    border: transparent;
+    border-radius: 36px;
+    background-color: #CABA93;
+    font-size: 26px;
 }
