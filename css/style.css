@@ -149,6 +149,7 @@ body{
     height: 60px;
     background-color: #EAE0C8;
     border-radius: 50px;
+    padding: 15px;
     box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.25);
     transition: all 0.3s ease;
 }
