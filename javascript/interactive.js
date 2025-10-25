@@ -1,40 +1,120 @@
-﻿const nameTodoInput = document.getElementById("input__noteName")
-const addTodoButton = document.getElementById("input_addTodo")
-const todoContainer = document.getElementById("notesField")
-const isDoneCheckBox = document.getElementById("input__checkbox")
+﻿const nameTodoInput = document.getElementById("input__noteName");
+const addTodoButton = document.getElementById("input_addTodo");
+const notesListContainer = document.getElementById("notes-list");
+const todoContainer = document.getElementById("todo_container");
+const noteNameElement = document.querySelector(".note__name");
+const notesField = document.getElementById("notesField");
+const noteCheckBox = document.getElementById("note__checkbox");
+const deleteNoteButton = document.getElementById("delete_note");
+const isDoneCheckBox = document.getElementById("input__checkbox");
 
-const todoList = []
+let notes = JSON.parse(localStorage.getItem('notes')) || [];
+let currentIndex = -1;
+let isDone = true;
 
-let isDone = false;
+function saveNotes() {
+    localStorage.setItem('notes', JSON.stringify(notes));
+}
+
+function renderNotesList() {
+    notesListContainer.innerHTML = "";
+    notes.forEach((note, index) => {
+        const button = document.createElement("button");
+        button.textContent = note.title;
+        if (note.done) {
+            button.classList.add("done");
+        }
+        button.addEventListener("click", () => selectNote(index));
+        notesListContainer.appendChild(button);
+    });
+}
+
+function selectNote(index) {
+    currentIndex = index;
+    const note = notes[index];
+    noteNameElement.textContent = note.title;
+    notesField.value = note.content;
+    if (note.done) {
+        noteCheckBox.classList.remove("checkbox-hidden");
+    } else {
+        noteCheckBox.classList.add("checkbox-hidden");
+    }
+    todoContainer.style.display = 'flex';
+}
+
+function clearNoteDisplay() {
+    noteNameElement.textContent = "";
+    notesField.value = "";
+    noteCheckBox.classList.add("checkbox-hidden");
+    todoContainer.style.display = 'none';
+}
+
+function updateInputCheckbox() {
+    if (!isDone) {
+        isDoneCheckBox.style.opacity = "0";
+        isDoneCheckBox.style.transform = "scale(0.8)";
+    } else {
+        isDoneCheckBox.style.opacity = "1";
+        isDoneCheckBox.style.transform = "scale(1)";
+    }
+}
 
 addTodoButton.addEventListener("click", () => {
-    if (nameTodoInput.value.trim()) {
-        todoList.push(nameTodoInput.value)
+    const title = nameTodoInput.value.trim();
+    if (title) {
+        notes.push({ title, content: "", done: isDone });
+        saveNotes();
+        renderNotesList();
+        selectNote(notes.length - 1);
         nameTodoInput.value = "";
-
-        todoContainer.innerHTML = "";
-        todoList.forEach((todo) =>
-        {
-            const todoElement = document.createElement("div");
-            todoElement.textContent = todo;
-            todoContainer.append(todoElement);
-        })
     }
-})
+});
 
 isDoneCheckBox.addEventListener("click", () => {
-    isDone = !isDone
+    isDone = !isDone;
+    updateInputCheckbox();
+});
 
-
-    if (isDone) {
-        isDoneCheckBox.style.visibility = 'hidden'; // Скрывает только изображение
-        // Или: isDoneCheckBox.style.opacity = '0';
-    } else {
-        isDoneCheckBox.style.visibility = 'visible'; // Показывает изображение
+noteCheckBox.addEventListener("click", () => {
+    if (currentIndex >= 0) {
+        notes[currentIndex].done = !notes[currentIndex].done;
+        saveNotes();
+        renderNotesList();
+        if (notes[currentIndex].done) {
+            noteCheckBox.classList.remove("checkbox-hidden");
+        } else {
+            noteCheckBox.classList.add("checkbox-hidden");
+        }
     }
-})
+});
 
-todoContainer.addEventListener('input', function() {
+notesField.addEventListener('input', function() {
+    if (currentIndex >= 0) {
+        notes[currentIndex].content = this.value;
+        saveNotes();
+    }
     this.style.height = 'auto';
     this.style.height = (this.scrollHeight) + 'px';
-})
+});
+
+deleteNoteButton.addEventListener("click", () => {
+    if (currentIndex >= 0 && confirm("Вы уверены, что хотите удалить эту заметку?")) {
+        notes.splice(currentIndex, 1);
+        saveNotes();
+        renderNotesList();
+        currentIndex = -1;
+        if (notes.length > 0) {
+            selectNote(0);
+        } else {
+            clearNoteDisplay();
+        }
+    }
+});
+
+updateInputCheckbox();
+renderNotesList();
+if (notes.length > 0) {
+    selectNote(0);
+} else {
+    clearNoteDisplay();
+}
