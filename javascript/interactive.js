@@ -115,7 +115,6 @@ deleteNoteButton.addEventListener("click", () => {
     }
 });
 
-// Initial load
 updateInputCheckbox();
 renderNotesList();
 if (notes.length > 0) {
