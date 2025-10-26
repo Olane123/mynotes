@@ -117,12 +117,19 @@ body{
     border-radius: 36px;
     background-color: #CABA93;
     font-size: 56px;
-    color: rgba(89, 59, 59, 1);
+    color: #E1EBB8;
 }
 
 #input__noteName::placeholder{
-    color: rgba(89, 59, 59, 1);
+    color: #E1EBB8;
 }
+
+#input_addTodo{
+    width: 100px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent 35%, #000 35%, #000 65%, transparent 65%), linear-gradient(to right, transparent 35%, #000 35%, #000 65%, transparent 65%);
+}
+
 
 .notes-list {
     width: 90%;
