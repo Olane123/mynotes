@@ -7,6 +7,7 @@ const notesField = document.getElementById("notesField");
 const noteCheckBox = document.getElementById("note__checkbox");
 const deleteNoteButton = document.getElementById("delete_note");
 const isDoneCheckBox = document.getElementById("input__checkbox");
+const noteDateElement = document.getElementById("note__date");  // New: Element to display date
 
 let notes = JSON.parse(localStorage.getItem('notes')) || [];
 let currentIndex = -1;
@@ -36,6 +37,9 @@ function selectNote(index) {
     notesField.value = note.content;
     notesField.style.height = 'auto';
     notesField.style.height = (notesField.scrollHeight) + 'px';
+
+    noteDateElement.textContent = note.createdAt ? `Создано: ${note.createdAt}` : "Дата неизвестна";
+
     if (note.done) {
         noteCheckBox.classList.remove("checkbox-hidden");
     } else {
@@ -50,6 +54,7 @@ function clearNoteDisplay() {
     notesField.style.height = 'auto';
     notesField.style.height = (notesField.scrollHeight) + 'px';
     noteCheckBox.classList.add("checkbox-hidden");
+    noteDateElement.textContent = "";  // New: Clear date
     todoContainer.style.display = 'none';
 }
 
@@ -66,7 +71,8 @@ function updateInputCheckbox() {
 addTodoButton.addEventListener("click", () => {
     const title = nameTodoInput.value.trim();
     if (title) {
-        notes.push({ title, content: "", done: isDone });
+        const createdAt = new Date().toLocaleString('ru-RU');
+        notes.push({ title, content: "", done: isDone, createdAt });
         saveNotes();
         renderNotesList();
         selectNote(notes.length - 1);

@@ -141,6 +141,14 @@ body{
     outline-offset: 0;
 }
 
+.note__date {
+    color: rgba(234, 224, 200, 0.8);
+    font-size: 18px;
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
 #input_addTodo {
     width: 60px;
     height: 60px;
