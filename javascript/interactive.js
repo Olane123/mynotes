@@ -7,7 +7,7 @@ const notesField = document.getElementById("notesField");
 const noteCheckBox = document.getElementById("note__checkbox");
 const deleteNoteButton = document.getElementById("delete_note");
 const isDoneCheckBox = document.getElementById("input__checkbox");
-const noteDateElement = document.getElementById("note__date");  // New: Element to display date
+const noteDateElement = document.getElementById("note__date");
 
 let notes = JSON.parse(localStorage.getItem('notes')) || [];
 let currentIndex = -1;
